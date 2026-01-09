@@ -1,7 +1,7 @@
 {
     "name": "ysaxon/pyrocms-ssti-fix",
     "description": "Security fix for PyroCMS SSTI vulnerability (CVE-2023-29689). Applies Twig sandbox to user-editable templates.",
-    "keywords": ["pyrocms", "security", "ssti", "twig", "sandbox", "fix"],
+    "keywords": ["pyrocms", "security", "ssti", "twig", "sandbox", "fix", "CVE-2023-29689", "vulnerability", "patch"],
     "license": "MIT",
     "authors": [
         {
