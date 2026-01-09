@@ -22,25 +22,26 @@ return [
     */
     'enabled' => env('PYROCMS_SSTI_FIX_ENABLED', true),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Sandbox Mode
-    |--------------------------------------------------------------------------
-    |
-    | Determines how the sandbox is applied:
-    |
-    | - 'auto'   : (Recommended) Sandbox is selectively enabled based on template
-    |              source. Templates from storage/database are sandboxed; filesystem
-    |              templates from themes/addons are not.
-    |
-    | - 'global' : Sandbox applies to ALL templates. May break legitimate
-    |              functionality in themes that use advanced Twig features.
-    |
-    | - 'manual' : Sandbox is loaded but disabled. Must be explicitly enabled
-    |              using {% sandbox %} tag or include(sandbox=true).
-    |
-    */
-    'mode' => env('PYROCMS_SSTI_FIX_MODE', 'auto'),
+    // There is no purpose to having the mode setting on this repo where using auto is the whole point, keeping it (commented out) only for the sake of reference since I may split out some of the code into its own "improved twig sandbox" repo later.
+    // /*
+    // |--------------------------------------------------------------------------
+    // | Sandbox Mode
+    // |--------------------------------------------------------------------------
+    // |
+    // | Determines how the sandbox is applied:
+    // |
+    // | - 'auto'   : (Recommended) Sandbox is selectively enabled based on template
+    // |              source. Templates from storage/database are sandboxed; filesystem
+    // |              templates from themes/addons are not.
+    // |
+    // | - 'global' : Sandbox applies to ALL templates. May break legitimate
+    // |              functionality in themes that use advanced Twig features.
+    // |
+    // | - 'manual' : Sandbox is loaded but disabled. Must be explicitly enabled
+    // |              using {% sandbox %} tag or include(sandbox=true).
+    // |
+    // */
+    // 'mode' => env('PYROCMS_SSTI_FIX_MODE', 'auto'),
 
     /*
     |--------------------------------------------------------------------------

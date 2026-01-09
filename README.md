@@ -74,9 +74,6 @@ return [
     // Master switch
     'enabled' => env('PYROCMS_SSTI_FIX_ENABLED', true),
 
-    // 'auto' (recommended), 'global', or 'manual'
-    'mode' => env('PYROCMS_SSTI_FIX_MODE', 'auto'),
-
     // Override auto-detected storage path
     'storage_path' => env('PYROCMS_SSTI_FIX_STORAGE_PATH', null),
 
@@ -88,14 +85,6 @@ return [
     ],
 ];
 ```
-
-### Modes
-
-| Mode | Behavior |
-|------|----------|
-| `auto` | **(Recommended)** Sandboxes templates from storage path only |
-| `global` | Sandboxes ALL templates (may break themes) |
-| `manual` | Loads sandbox but disabled by default; use `{% sandbox %}` tag |
 
 ## What's Blocked
 
