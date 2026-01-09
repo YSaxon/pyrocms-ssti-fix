@@ -22,7 +22,12 @@ This package automatically sandboxes user-editable templates while leaving legit
 composer require ysaxon/pyro-ssti-hotfix
 ```
 
-**That's it.** The package auto-discovers via Laravel's package discovery and applies secure defaults immediately.
+Unfortunately, due to PyroCMS [disabling autodiscovery](https://github.com/pyrocms/pyrocms/commit/978bbb63c9b871df85bf6ba98756fbd621bff4ec) you will need to add the serviceProvider yourself.
+
+You can do that with
+```bash
+sed -i "/App\\\Providers\\\AppServiceProvider::class,/a \        YSaxon\\\PyroSstiHotfix\\\HotfixServiceProvider::class," config/app.php
+```
 
 ## Requirements
 
