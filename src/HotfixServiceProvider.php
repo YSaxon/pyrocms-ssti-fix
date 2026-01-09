@@ -30,7 +30,9 @@ class HotfixServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+         if (config('pyro-ssti-hotfix.debug', false)) {
         \Log::info('[PyroSstiHotfix] Boot called');
+        }
 
         // Publish config for customization
         $this->publishes([
