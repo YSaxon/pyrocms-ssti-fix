@@ -128,7 +128,7 @@ class MethodMatcher
 
         // Also try with leading backslash
         // if ($obj instanceof ('\\' . $normalizedAllowed)) {
-        $classWithSlash = '\\' . $normalizedClass;
+        $classWithSlash = '\\' . $normalizedAllowed;
         if ($obj instanceof $classWithSlash) {
             return true;
         }
