@@ -1,3 +1,6 @@
+![Packagist Version](https://img.shields.io/packagist/v/ysaxon/pyrocms-ssti-fix)
+
+
 # 🛡️ PyroCMS SSTI Fix
 
 **Drop-in security fix for CVE-2023-29689** - Server-Side Template Injection leading to Remote Code Execution in PyroCMS 3.9.
