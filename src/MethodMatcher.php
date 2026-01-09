@@ -58,14 +58,14 @@ class MethodMatcher
     public function isAllowed(object $obj, string $method): bool
     {
         $class = get_class($obj);
-        $cacheKey = $class . '::' . $method;
+        $methodLower = strtolower($method);
+        $cacheKey = $class . '::' . $methodLower;
 
         // Check cache
         if (isset($this->cache[$cacheKey])) {
             return $this->cache[$cacheKey];
         }
 
-        $methodLower = strtolower($method);
         $result = $this->checkAllowed($obj, $class, $methodLower);
 
         $this->cache[$cacheKey] = $result;
