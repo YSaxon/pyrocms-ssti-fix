@@ -19,8 +19,7 @@ This package automatically sandboxes user-editable templates while leaving legit
 ## Installation
 
 ```bash
-composer config repositories.pyrocms-ssti-fix vcs https://github.com/ysaxon/pyrocms-ssti-fix.git
-composer require ysaxon/pyrocms-ssti-fix:dev-main
+composer require ysaxon/pyrocms-ssti-fix
 ```
 
 Unfortunately, due to PyroCMS [disabling autodiscovery](https://github.com/pyrocms/pyrocms/commit/978bbb63c9b871df85bf6ba98756fbd621bff4ec) you will need to add the serviceProvider yourself.
