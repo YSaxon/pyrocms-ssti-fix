@@ -31,7 +31,7 @@ class HotfixServiceProvider extends ServiceProvider
     public function boot(): void
     {
          if (config('pyro-ssti-hotfix.debug', false)) {
-        \Log::info('[PyroSstiHotfix] Boot called');
+            \Log::info('[PyroSstiHotfix] Boot called');
         }
 
         // Publish config for customization
@@ -58,9 +58,7 @@ class HotfixServiceProvider extends ServiceProvider
         // Check if Twig is bound in the container
         if (!$this->app->bound('twig')) {
             // Twig not registered - maybe not a PyroCMS install or streams-platform not loaded
-            if (config('pyro-ssti-hotfix.debug', false)) {
-                \Log::warning('[PyroSstiHotfix] Twig not found in container. Sandbox not applied.');
-            }
+            \Log::warning('[PyroSstiHotfix] Twig not found in container. Sandbox not applied.');
             return;
         }
 
