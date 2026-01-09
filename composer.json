@@ -19,6 +19,14 @@
             "YSaxon\\PyroCmsSstiFix\\": "src/"
         }
     },
+    "scripts": {
+        "post-install-cmd": [
+            "YSaxon\\PyroCmsSstiFix\\Composer\\Scripts::postInstall"
+        ],
+        "post-update-cmd": [
+            "YSaxon\\PyroCmsSstiFix\\Composer\\Scripts::postInstall"
+        ]
+    },
     "extra": {
         "laravel": {
             "providers": [
