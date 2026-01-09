@@ -80,8 +80,8 @@ final class SecurityPolicy implements SecurityPolicyInterface
         $this->allowedFunctions = array_flip($allowedFunctions);
 
         // Use MethodMatcher for wildcard support
-        $this->allowedMethods = new MethodMatcher($allowedMethods);
-        $this->allowedProperties = new MethodMatcher($allowedProperties);
+        $this->allowedMethods = new MethodMatcher($allowedMethods,true);
+        $this->allowedProperties = new MethodMatcher($allowedProperties,false); // Properties are case-sensitive
     }
 
     /**
@@ -216,7 +216,7 @@ final class SecurityPolicy implements SecurityPolicyInterface
     public function setAllowedMethods(array $methods): void
     {
         $methods = SecurityPolicyDefaults::addDefaultsToAssociativeArray($methods, SecurityPolicyDefaults::METHODS);
-        $this->allowedMethods = new MethodMatcher($methods);
+        $this->allowedMethods = new MethodMatcher($methods, true);
     }
 
     /**
@@ -227,6 +227,6 @@ final class SecurityPolicy implements SecurityPolicyInterface
     public function setAllowedProperties(array $properties): void
     {
         $properties = SecurityPolicyDefaults::addDefaultsToAssociativeArray($properties, SecurityPolicyDefaults::PROPERTIES);
-        $this->allowedProperties = new MethodMatcher($properties);
+        $this->allowedProperties = new MethodMatcher($properties, false); // Properties are case-sensitive
     }
 }

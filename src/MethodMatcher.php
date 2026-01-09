@@ -31,18 +31,26 @@ class MethodMatcher
     protected array $cache = [];
 
     /**
+     * Whether method/property matching is case-insensitive.
+     */
+    protected bool $caseInsensitive;
+
+    /**
      * Create a new MethodMatcher instance.
      *
      * @param array $allowed Array of ['ClassName' => ['method1', 'method2', ...], ...]
+     * @param bool $caseInsensitive Whether to perform case-insensitive matching (default: true)
      */
-    public function __construct(array $allowed)
+    public function __construct(array $allowed, bool $caseInsensitive = true)
     {
-        // Normalize method names to lowercase for case-insensitive matching
+        $this->caseInsensitive = $caseInsensitive;
+
+        // Normalize method names to lowercase if case-insensitive matching is enabled
         $this->allowed = [];
         foreach ($allowed as $class => $methods) {
             $normalizedMethods = [];
             foreach ((array) $methods as $method) {
-                $normalizedMethods[] = strtolower($method);
+                $normalizedMethods[] = $caseInsensitive ? strtolower($method) : $method;
             }
             $this->allowed[$class] = $normalizedMethods;
         }
@@ -58,7 +66,7 @@ class MethodMatcher
     public function isAllowed(object $obj, string $method): bool
     {
         $class = get_class($obj);
-        $methodLower = strtolower($method);
+        $methodLower = $this->caseInsensitive ? strtolower($method) : $method;
         $cacheKey = $class . '::' . $methodLower;
 
         // Check cache
